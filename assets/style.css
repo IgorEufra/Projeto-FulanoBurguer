@@ -322,8 +322,20 @@ footer .copyrights a:hover {
 @media (max-width: 835px) {
     header nav {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(-10px);
     }
-
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+   
+    
     header .menu {
         display: flex;
     }
