@@ -48,7 +48,6 @@ header nav {
     display: flex;
     align-items: center;
 }
-
 header nav .leftSide {
     /*Flex para que o menu fique um ao lado do outro*/
     display: flex;
@@ -379,6 +378,48 @@ footer .copyrights a:hover {
         flex-direction: column;
         gap: 20px;
     }
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 100px;
+        width: 100%;
+        background-color: #1f1f1f;
+        padding: 20px;
+        border-top: 1px solid #333;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    /* quando o menu estiver ativo */
+    nav.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        position: fixed;
+        width: 100%;
+        height: auto;
+        background-color: #1f1f1f;
+        z-index: 1000;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        animation: slideIn 0.4s ease-in-out;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav .rightSide {
+        display:none;
+    }
+
+    .hero {
+        margin-top: 80px; /* Para evitar que o nav esconda o conteúdo */
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -407,5 +448,27 @@ footer .copyrights a:hover {
         flex-direction: column;
         margin-top: 30px;
         gap: 20px;
+    }
+}
+
+/* Animação do menu aparecendo */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 }
